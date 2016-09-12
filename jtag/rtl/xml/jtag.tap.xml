@@ -349,6 +349,17 @@
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
+	<ipxact:fileSets>
+		<ipxact:fileSet>
+			<ipxact:name>sim</ipxact:name>
+			<ipxact:displayName>sim</ipxact:displayName>
+			<ipxact:description>simulation file</ipxact:description>
+			<ipxact:file>
+				<ipxact:name>../verilog/jtag_tap.v</ipxact:name>
+				<ipxact:fileType>verilogSource</ipxact:fileType>
+			</ipxact:file>
+		</ipxact:fileSet>
+	</ipxact:fileSets>
 	<ipxact:description>Socgen CDE jtag Test Access Controller (TAP)</ipxact:description>
 	<ipxact:parameters>
 		<ipxact:parameter parameterId="uuid_f356d0df_58a8_4412_91bd_81c8d091a066">
