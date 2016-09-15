@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>opencores.org</ipxact:vendor>
+	<ipxact:library>socgen_CDE</ipxact:library>
+	<ipxact:name>jtag.design</ipxact:name>
+	<ipxact:version>tap</ipxact:version>
+	<ipxact:componentInstances>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>jtag_0</ipxact:instanceName>
+			<ipxact:componentRef vendor="opencores.org" library="socgen_CDE" name="jtag" version="tap_core"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{bfa98e41-0942-45fa-9a9b-357af5211183}</kactus2:uuid>
+				<kactus2:position x="600" y="60"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+		<ipxact:componentInstance>
+			<ipxact:instanceName>jtag_1</ipxact:instanceName>
+			<ipxact:componentRef vendor="opencores.org" library="socgen_CDE" name="jtag" version="rpc_reg"/>
+			<ipxact:vendorExtensions>
+				<kactus2:uuid>{b8401b75-d9f3-4bc8-9c0b-f6b51b9cffdd}</kactus2:uuid>
+				<kactus2:portPositions>
+					<kactus2:portPosition busRef="jtag" x="-110" y="40"/>
+				</kactus2:portPositions>
+				<kactus2:position x="600" y="240"/>
+			</ipxact:vendorExtensions>
+		</ipxact:componentInstance>
+	</ipxact:componentInstances>
+	<ipxact:interconnections>
+		<ipxact:interconnection>
+			<ipxact:name>jtag_0_jtag_to_jtag_1_jtag</ipxact:name>
+			<ipxact:activeInterface componentRef="jtag_0" busRef="jtag"/>
+			<ipxact:activeInterface componentRef="jtag_1" busRef="jtag"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>jtag_0_tdi_pad_to_tdi_pad</ipxact:name>
+			<ipxact:activeInterface componentRef="jtag_0" busRef="tdi_pad"/>
+			<ipxact:hierInterface busRef="tdi_pad"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>jtag_0_tdo_pad_to_tdo_pad</ipxact:name>
+			<ipxact:activeInterface componentRef="jtag_0" busRef="tdo_pad"/>
+			<ipxact:hierInterface busRef="tdo_pad"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>jtag_0_tclk_pad_to_tclk_pad</ipxact:name>
+			<ipxact:activeInterface componentRef="jtag_0" busRef="tclk_pad"/>
+			<ipxact:hierInterface busRef="tclk_pad"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>jtag_0_tms_pad_to_tms_pad</ipxact:name>
+			<ipxact:activeInterface componentRef="jtag_0" busRef="tms_pad"/>
+			<ipxact:hierInterface busRef="tms_pad"/>
+		</ipxact:interconnection>
+		<ipxact:interconnection>
+			<ipxact:name>jtag_0_trst_n_pad_to_trst_n_pad</ipxact:name>
+			<ipxact:activeInterface componentRef="jtag_0" busRef="trst_n_pad"/>
+			<ipxact:hierInterface busRef="trst_n_pad"/>
+		</ipxact:interconnection>
+	</ipxact:interconnections>
+	<ipxact:vendorExtensions>
+		<kactus2:version>3,1,2,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+		</kactus2:kts_attributes>
+		<kactus2:columnLayout>
+			<kactus2:column name="IO" contentType="0" allowedItems="1" minWidth="119" width="119" x="0"/>
+			<kactus2:column name="Buses" contentType="1" allowedItems="12" minWidth="319" width="319" x="120"/>
+			<kactus2:column name="Components" contentType="2" allowedItems="2" minWidth="319" width="319" x="440"/>
+			<kactus2:column name="IO" contentType="0" allowedItems="1" minWidth="119" width="119" x="760"/>
+		</kactus2:columnLayout>
+		<kactus2:adHocVisibilities/>
+		<kactus2:routes>
+			<kactus2:route kactus2:connRef="jtag_0_jtag_to_jtag_1_jtag" kactus2:offPage="false">
+				<kactus2:position x="710" y="190"/>
+				<kactus2:position x="730" y="190"/>
+				<kactus2:position x="730" y="290"/>
+				<kactus2:position x="470" y="290"/>
+				<kactus2:position x="470" y="280"/>
+				<kactus2:position x="490" y="280"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="jtag_0_tdi_pad_to_tdi_pad" kactus2:offPage="false">
+				<kactus2:position x="490" y="100"/>
+				<kactus2:position x="80" y="100"/>
+				<kactus2:position x="80" y="90"/>
+				<kactus2:position x="60" y="90"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="jtag_0_tdo_pad_to_tdo_pad" kactus2:offPage="false">
+				<kactus2:position x="490" y="130"/>
+				<kactus2:position x="90" y="130"/>
+				<kactus2:position x="90" y="120"/>
+				<kactus2:position x="60" y="120"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="jtag_0_tclk_pad_to_tclk_pad" kactus2:offPage="false">
+				<kactus2:position x="710" y="100"/>
+				<kactus2:position x="740" y="100"/>
+				<kactus2:position x="740" y="150"/>
+				<kactus2:position x="60" y="150"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="jtag_0_tms_pad_to_tms_pad" kactus2:offPage="false">
+				<kactus2:position x="710" y="130"/>
+				<kactus2:position x="750" y="130"/>
+				<kactus2:position x="750" y="200"/>
+				<kactus2:position x="60" y="200"/>
+			</kactus2:route>
+			<kactus2:route kactus2:connRef="jtag_0_trst_n_pad_to_trst_n_pad" kactus2:offPage="false">
+				<kactus2:position x="710" y="160"/>
+				<kactus2:position x="760" y="160"/>
+				<kactus2:position x="760" y="230"/>
+				<kactus2:position x="60" y="230"/>
+			</kactus2:route>
+		</kactus2:routes>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>tclk_pad</kactus2:name>
+			<kactus2:position x="60" y="150"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>tdo_pad</kactus2:name>
+			<kactus2:position x="60" y="120"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>tdi_pad</kactus2:name>
+			<kactus2:position x="60" y="90"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>tms_pad</kactus2:name>
+			<kactus2:position x="60" y="200"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>trst_n_pad</kactus2:name>
+			<kactus2:position x="60" y="230"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+		<kactus2:interfaceGraphics>
+			<kactus2:name>bus</kactus2:name>
+			<kactus2:position x="60" y="400"/>
+			<kactus2:direction x="1" y="0"/>
+		</kactus2:interfaceGraphics>
+	</ipxact:vendorExtensions>
+</ipxact:design>

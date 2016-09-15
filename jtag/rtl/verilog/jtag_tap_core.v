@@ -19,7 +19,7 @@
 /*   permissions and limitations under the License.                   */
 /**********************************************************************/
  module 
-  cde_jtag_tap 
+  cde_jtag_tap_core 
     #( parameter 
       BYPASS=4'b1111,
       CHIP_ID_ACCESS=4'b0011,
@@ -36,34 +36,51 @@
       SAMPLE=4'b0001,
       USER=8'b1010_1001)
      (
- input   wire                 aux_tdo_i,
- input   wire                 bsr_tdo_i,
- input   wire                 tclk_pad_in,
- input   wire                 tdi_pad_in,
- input   wire                 tdo_i,
- input   wire                 tms_pad_in,
- input   wire                 trst_n_pad_in,
- output   reg                 bsr_output_mode,
- output   reg                 capture_dr_o,
- output   reg                 shift_dr_o,
- output   reg                 tap_highz_mode,
- output   reg                 test_logic_reset_o,
- output   reg                 update_dr_o,
- output   wire                 aux_capture_dr_o,
- output   wire                 aux_select_o,
- output   wire                 aux_shift_dr_o,
- output   wire                 aux_shiftcapture_dr_clk_o,
- output   wire                 aux_tdi_o,
- output   wire                 aux_test_logic_reset_o,
- output   wire                 aux_update_dr_clk_o,
- output   wire                 bsr_select_o,
- output   wire                 jtag_clk,
- output   wire                 select_o,
- output   wire                 shiftcapture_dr_clk_o,
- output   wire                 tdi_o,
- output   wire                 tdo_pad_oe,
- output   wire                 tdo_pad_out,
- output   wire                 update_dr_clk_o);
+ input wire  tclk_pad_in,
+ input wire  tms_pad_in,
+ input wire  trst_n_pad_in,
+ input wire  tdi_pad_in,
+ output wire tdo_pad_oe,
+ output wire tdo_pad_out,
+
+
+ output reg  tap_highz_mode,
+
+      
+ input wire  bsr_tdo_i,
+ output reg  bsr_output_mode,
+ output wire bsr_select_o
+      
+      
+ input wire  tdo_i, 
+ output wire select_o,
+
+ input wire  chip_id_tdo,
+ input wire  chip_id_select,      
+      
+ output reg  capture_dr_o,
+ output reg  shift_dr_o,
+ output reg  test_logic_reset_o,
+ output reg  update_dr_o,
+ output wire jtag_clk,
+ output wire tdi_o,
+
+
+
+      
+ input wire  aux_tdo_i,
+ output wire aux_select_o,
+ output wire aux_capture_dr_o,
+ output wire aux_shift_dr_o,
+ output wire aux_tdi_o,
+ output wire aux_test_logic_reset_o,
+
+
+
+
+
+
+);
 reg                        bypass_tdo;
 reg                        capture_ir;
 reg                        next_tdo;
@@ -74,67 +91,32 @@ reg     [ 3 :  0]              tap_state;
 wire                        aux_jtag_clk;
 wire                        aux_update_dr_o;
 wire                        bypass_select;
-wire                        chip_id_select;
-wire                        chip_id_tdo;
+
+
 wire                        clamp;
 wire                        extest;
-wire                        jtag_shift_clk;
 wire                        sample;
 wire                        shiftcapture_dr;
 wire                        tclk;
 wire                        tclk_n;
 wire                        trst_pad_in;
-wire     [ 31 :  0]              chip_id_value;
-/*  opencores.org:cde:jtag:rpc_in_reg  */ 
-cde_jtag_rpc_in_reg
-#( .BITS (32),
-   .RESET_VALUE (CHIP_ID_VAL))
-chip_id_reg 
-   (
-    .capture_dr      ( capture_dr_o  ),
-    .capture_value      ( chip_id_value[31:0] ),
-    .clk      ( jtag_clk  ),
-    .reset      ( trst_pad_in  ),
-    .select      ( chip_id_select  ),
-    .shift_dr      ( shift_dr_o  ),
-    .tdi      ( tdi_pad_in  ),
-    .tdo      ( chip_id_tdo  ));
-/*  opencores.org:cde:clock:gater  */ 
-cde_clock_gater
-clk_gater_jtag_clk 
-   (
-    .atg_clk_mode      ( 1'b0  ),
-    .clk_in      ( tclk  ),
-    .clk_out      ( jtag_clk  ),
-    .enable      ( 1'b1  ));
-/*  opencores.org:cde:clock:gater  */ 
-cde_clock_gater
-clk_gater_jtag_shift_clk 
-   (
-    .atg_clk_mode      ( 1'b0  ),
-    .clk_in      ( tclk  ),
-    .clk_out      ( jtag_shift_clk  ),
-    .enable      ( shiftcapture_dr  ));
-/*  opencores.org:cde:clock:gater  */ 
-cde_clock_gater
-clk_gater_jtag_update_clk 
-   (
-    .atg_clk_mode      ( 1'b0  ),
-    .clk_in      ( tclk  ),
-    .clk_out      ( update_dr_clk_o  ),
-    .enable      ( update_dr_o  ));
+
+
+   
+ assign jtag_clk = tclk;
+   
+
+
 //********************************************************************
 //*** assignments for 2nd channel
 //********************************************************************
  assign      aux_jtag_clk               = jtag_clk;
- assign      aux_update_dr_clk_o        = update_dr_clk_o;
- assign      aux_shiftcapture_dr_clk_o  = shiftcapture_dr_clk_o;
  assign      aux_test_logic_reset_o     = test_logic_reset_o;
  assign      aux_tdi_o                  = tdi_o;
  assign      aux_capture_dr_o           = capture_dr_o;
  assign      aux_shift_dr_o             = shift_dr_o;
  assign      aux_update_dr_o            = update_dr_o;
- assign      chip_id_value              = CHIP_ID_VAL ;
+
 //********************************************************************
 //*** TAP Controller State Machine
 //********************************************************************
@@ -227,7 +209,6 @@ assign  clamp           = ( instruction == CLAMP );
 assign  chip_id_select  = ( instruction == CHIP_ID_ACCESS );
 // bypass anytime we are not doing a defined instructions, or if in clamp or bypass mode
 assign   bypass_select  = ( instruction == CLAMP ) || ( instruction == BYPASS );
-assign  shiftcapture_dr_clk_o     =  jtag_shift_clk;
 assign  select_o                  = ( instruction == RPC_ADD );
 assign  aux_select_o              = ( instruction == RPC_DATA );
 assign  bsr_select_o              = ( instruction == EXTEST ) || ( instruction == SAMPLE )       ;

@@ -4,246 +4,82 @@
 	<ipxact:library>socgen_CDE</ipxact:library>
 	<ipxact:name>jtag</ipxact:name>
 	<ipxact:version>tap_tb</ipxact:version>
+	<ipxact:busInterfaces>
+		<ipxact:busInterface>
+			<ipxact:name>FAIL</ipxact:name>
+			<ipxact:busType vendor="opencores.org" library="socgen_Busdefs" name="adhoc" version="bus"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="opencores.org" library="socgen_Busdefs" name="adhoc.absDef" version="bus"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>adhoc</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>FAIL</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:master/>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>FINISH</ipxact:name>
+			<ipxact:busType vendor="opencores.org" library="socgen_Busdefs" name="adhoc" version="bus"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="opencores.org" library="socgen_Busdefs" name="adhoc.absDef" version="bus"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>adhoc</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>FINISH</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:master/>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>clk</ipxact:name>
+			<ipxact:busType vendor="opencores.org" library="socgen_Busdefs" name="clk" version="bus"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="opencores.org" library="socgen_Busdefs" name="clk.absDef" version="bus"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>clk</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>clk</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:slave/>
+		</ipxact:busInterface>
+	</ipxact:busInterfaces>
 	<ipxact:model>
 		<ipxact:views>
 			<ipxact:view>
-				<ipxact:name>sim</ipxact:name>
-				<ipxact:envIdentifier>verilog:Kactus2:</ipxact:envIdentifier>
-				<ipxact:componentInstantiationRef>flat_verilog_component</ipxact:componentInstantiationRef>
+				<ipxact:name>structural</ipxact:name>
+				<ipxact:designConfigurationInstantiationRef>jtag.designcfg_tap_tb</ipxact:designConfigurationInstantiationRef>
 			</ipxact:view>
-			
 		</ipxact:views>
 		<ipxact:instantiations>
-			<ipxact:componentInstantiation>
-				<ipxact:name>flat_verilog_component</ipxact:name>
-				<ipxact:language>verilog</ipxact:language>
-				<ipxact:moduleName>cde_jtag_tap_tb</ipxact:moduleName>
-				<ipxact:moduleParameters>
-					<ipxact:moduleParameter parameterId="uuid_4b28b355_0acd_4755_87a5_2abdf943ef5d" usageType="nontyped">
-						<ipxact:name>BYPASS</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b1111</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_9b1e52fd_e5f2_4dfd_a77d_5e03bdcc1bf5" usageType="nontyped">
-						<ipxact:name>CHIP_ID_ACCESS</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b0011</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_f8294035_3bbd_4b57_bdd0_b96516b5520d" usageType="nontyped">
-						<ipxact:name>CHIP_ID_VAL</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>32'h12345678</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_4d2e330b_54a4_4be6_9ebf_a87bc7b59fc1" usageType="nontyped">
-						<ipxact:name>CLAMP</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b1000</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_111d5435_b29d_4481_94aa_f477b1ef4207" usageType="nontyped">
-						<ipxact:name>EXTEST</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b0000</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_8dd8aafb_c50e_4b15_8161_dd907377ced5" usageType="nontyped">
-						<ipxact:name>HIGHZ_MODE</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b0010</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_69ac23bd_60e8_43b0_98b9_faa72a8d3018" usageType="nontyped">
-						<ipxact:name>INST_LENGTH</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_579957ab_9840_4857_8e66_b2efe7ad7d5e" usageType="nontyped">
-						<ipxact:name>INST_RETURN</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b1101</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_f68db7ea_82f8_4c3c_b531_365df7ddfb53" usageType="nontyped">
-						<ipxact:name>JTAG_MODEL_DIVCNT</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'h4</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_2d9a3e0f_70dc_4eef_aa16_5049b7f31d0b" usageType="nontyped">
-						<ipxact:name>JTAG_MODEL_SIZE</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_776d55bc_861f_4eff_a598_71e68364d062" usageType="nontyped">
-						<ipxact:name>JTAG_SEL</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>2</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_89802f0b_a1b5_4ffa_bddc_204a12b6ab72" usageType="nontyped">
-						<ipxact:name>JTAG_USER1_RESET</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>8'h12</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_a0e1780a_b7a8_4941_9a47_b17c2df31a43" usageType="nontyped">
-						<ipxact:name>JTAG_USER1_WIDTH</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>8</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_d10509a0_1b18_4dbe_b1f2_5d73f53a8075" usageType="nontyped">
-						<ipxact:name>JTAG_USER2_RESET</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>24'h123456</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_7fb42885_4852_4039_8551_95804cd1b7dc" usageType="nontyped">
-						<ipxact:name>JTAG_USER2_WIDTH</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>24</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_3448aaff_95a2_4932_8147_bf41d19ad01c" usageType="nontyped">
-						<ipxact:name>PERIOD</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>40</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_cc6fbb61_2ded_46fa_b99c_dc7ab6b00e72" usageType="nontyped">
-						<ipxact:name>RPC_ADD</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b1001</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_23613975_6cfa_4930_af5f_ce5775fe6f79" usageType="nontyped">
-						<ipxact:name>RPC_DATA</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b1010</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_66c7d4cf_0101_4c3a_82f9_761ab6181eaf" usageType="nontyped">
-						<ipxact:name>SAMPLE</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>4'b0001</ipxact:value>
-					</ipxact:moduleParameter>
-					<ipxact:moduleParameter parameterId="uuid_f0fefaa2_686d_49ee_9b53_9bc38f2b609c" usageType="nontyped">
-						<ipxact:name>TIMEOUT</ipxact:name>
-						<ipxact:arrays>
-							<ipxact:array>
-								<ipxact:left></ipxact:left>
-								<ipxact:right></ipxact:right>
-							</ipxact:array>
-						</ipxact:arrays>
-						<ipxact:value>100000</ipxact:value>
-					</ipxact:moduleParameter>
-				</ipxact:moduleParameters>
-				<ipxact:fileSetRef>
-					<ipxact:localName>../verilog</ipxact:localName>
-				</ipxact:fileSetRef>
-			</ipxact:componentInstantiation>
+			<ipxact:designConfigurationInstantiation>
+				<ipxact:name>jtag.designcfg_tap_tb</ipxact:name>
+				<ipxact:designConfigurationRef vendor="opencores.org" library="socgen_CDE" name="jtag.designcfg" version="tap_tb"/>
+			</ipxact:designConfigurationInstantiation>
 		</ipxact:instantiations>
 		<ipxact:ports>
-			<ipxact:port>
-				<ipxact:name>START</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>in</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>wire</ipxact:typeName>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-			</ipxact:port>
 			<ipxact:port>
 				<ipxact:name>clk</ipxact:name>
 				<ipxact:wire>
@@ -256,25 +92,6 @@
 					</ipxact:vectors>
 					<ipxact:wireTypeDefs>
 						<ipxact:wireTypeDef>
-							<ipxact:typeName>wire</ipxact:typeName>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
-				</ipxact:wire>
-			</ipxact:port>
-			<ipxact:port>
-				<ipxact:name>FAIL</ipxact:name>
-				<ipxact:wire>
-					<ipxact:direction>out</ipxact:direction>
-					<ipxact:vectors>
-						<ipxact:vector>
-							<ipxact:left></ipxact:left>
-							<ipxact:right></ipxact:right>
-						</ipxact:vector>
-					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>wire</ipxact:typeName>
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
@@ -290,39 +107,28 @@
 							<ipxact:right></ipxact:right>
 						</ipxact:vector>
 					</ipxact:vectors>
-					<ipxact:wireTypeDefs>
-						<ipxact:wireTypeDef>
-							<ipxact:typeName>wire</ipxact:typeName>
-							<ipxact:typeDefinition></ipxact:typeDefinition>
-						</ipxact:wireTypeDef>
-					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>FAIL</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
 				</ipxact:wire>
 			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
-	<ipxact:fileSets>
-		<ipxact:fileSet>
-			<ipxact:name>../verilog</ipxact:name>
-			<ipxact:file>
-				<ipxact:name>../verilog/jtag_tap_tb.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:vendorExtensions>
-					<kactus2:hash>8f1513d40d7035f9f1b174567718e6f429f308a3</kactus2:hash>
-				</ipxact:vendorExtensions>
-			</ipxact:file>
-		</ipxact:fileSet>
-	</ipxact:fileSets>
-	<ipxact:description>jtag tap testbench</ipxact:description>
 	<ipxact:vendorExtensions>
+		<kactus2:version>3,1,2,0</kactus2:version>
 		<kactus2:kts_attributes>
-			<kactus2:kts_productHier>Flat</kactus2:kts_productHier>
+			<kactus2:kts_productHier>IP</kactus2:kts_productHier>
 			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
 			<kactus2:kts_firmness>Mutable</kactus2:kts_firmness>
 		</kactus2:kts_attributes>
-		<kactus2:version>3,1,2,0</kactus2:version>
-		<kactus2:author>johne</kactus2:author>
-		<kactus2:sourceDirectories>
-			<kactus2:sourceDirectory>../verilog</kactus2:sourceDirectory>
-		</kactus2:sourceDirectories>
 	</ipxact:vendorExtensions>
 </ipxact:component>
