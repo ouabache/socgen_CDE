@@ -46,6 +46,26 @@
 			<ipxact:master/>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
+			<ipxact:name>START</ipxact:name>
+			<ipxact:busType vendor="opencores.org" library="socgen_Busdefs" name="adhoc" version="bus"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="opencores.org" library="socgen_Busdefs" name="adhoc.absDef" version="bus"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>adhoc</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>START</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:slave/>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
 			<ipxact:name>clk</ipxact:name>
 			<ipxact:busType vendor="opencores.org" library="socgen_Busdefs" name="clk" version="bus"/>
 			<ipxact:abstractionTypes>
@@ -70,14 +90,15 @@
 		<ipxact:views>
 			<ipxact:view>
 				<ipxact:name>structural</ipxact:name>
-				<ipxact:designConfigurationInstantiationRef>jtag.designcfg_tap_tb</ipxact:designConfigurationInstantiationRef>
+				<ipxact:designInstantiationRef>jtag.design_tap_tb</ipxact:designInstantiationRef>
 			</ipxact:view>
 		</ipxact:views>
 		<ipxact:instantiations>
-			<ipxact:designConfigurationInstantiation>
-				<ipxact:name>jtag.designcfg_tap_tb</ipxact:name>
-				<ipxact:designConfigurationRef vendor="opencores.org" library="socgen_CDE" name="jtag.designcfg" version="tap_tb"/>
-			</ipxact:designConfigurationInstantiation>
+			<ipxact:designInstantiation>
+				<ipxact:name>jtag.design_tap_tb</ipxact:name>
+				<ipxact:displayName>test</ipxact:displayName>
+				<ipxact:designRef vendor="opencores.org" library="socgen_CDE" name="jtag.design" version="tap_tb"/>
+			</ipxact:designInstantiation>
 		</ipxact:instantiations>
 		<ipxact:ports>
 			<ipxact:port>
@@ -95,6 +116,18 @@
 							<ipxact:typeDefinition></ipxact:typeDefinition>
 						</ipxact:wireTypeDef>
 					</ipxact:wireTypeDefs>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>START</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
 				</ipxact:wire>
 			</ipxact:port>
 			<ipxact:port>
