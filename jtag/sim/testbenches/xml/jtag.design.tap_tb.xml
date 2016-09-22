@@ -2,8 +2,8 @@
 <ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>opencores.org</ipxact:vendor>
 	<ipxact:library>socgen_CDE</ipxact:library>
-	<ipxact:name>jtag.design</ipxact:name>
-	<ipxact:version>tap_tb</ipxact:version>
+	<ipxact:name>jtag</ipxact:name>
+	<ipxact:version>design.tap_tb</ipxact:version>
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>jtag_0</ipxact:instanceName>

@@ -869,13 +869,6 @@
 				<ipxact:name>../verilog/jtag_tap_core.v</ipxact:name>
 				<ipxact:fileType>verilogSource</ipxact:fileType>
 				<ipxact:vendorExtensions>
-					<kactus2:hash>7f6d416f2a81d8299ba4c69db3dc9e491d98569d</kactus2:hash>
-				</ipxact:vendorExtensions>
-			</ipxact:file>
-			<ipxact:file>
-				<ipxact:name>../verilog/jtag_tap_core.v</ipxact:name>
-				<ipxact:fileType>verilogSource</ipxact:fileType>
-				<ipxact:vendorExtensions>
 					<kactus2:hash>550d65dc86ce8397b2ab236bd88d6071a2340a95</kactus2:hash>
 				</ipxact:vendorExtensions>
 			</ipxact:file>
