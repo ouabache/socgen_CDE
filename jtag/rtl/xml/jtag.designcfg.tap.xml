@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:designConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
-	<ipxact:vendor>opencores.org</ipxact:vendor>
+	<ipxact:vendor>fusesoc</ipxact:vendor>
 	<ipxact:library>socgen_CDE</ipxact:library>
 	<ipxact:name>jtag.designcfg</ipxact:name>
 	<ipxact:version>tap</ipxact:version>
-	<ipxact:designRef vendor="opencores.org" library="socgen_CDE" name="jtag.design" version="tap"/>
+	<ipxact:designRef vendor="fusesoc" library="socgen_CDE" name="jtag.design" version="tap"/>
 	<ipxact:viewConfiguration>
 		<ipxact:instanceName>jtag_0</ipxact:instanceName>
 		<ipxact:view viewRef="sim"/>

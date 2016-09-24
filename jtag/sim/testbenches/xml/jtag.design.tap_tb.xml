@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ipxact:design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
-	<ipxact:vendor>opencores.org</ipxact:vendor>
+	<ipxact:vendor>fusesoc</ipxact:vendor>
 	<ipxact:library>socgen_CDE</ipxact:library>
 	<ipxact:name>jtag</ipxact:name>
 	<ipxact:version>design.tap_tb</ipxact:version>
 	<ipxact:componentInstances>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>jtag_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="opencores.org" library="socgen_CDE" name="jtag" version="tap"/>
+			<ipxact:componentRef vendor="fusesoc" library="socgen_CDE" name="jtag" version="tap"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{8317c5f6-5221-4f0e-a384-59081283f3f9}</kactus2:uuid>
 				<kactus2:portPositions>
@@ -22,7 +22,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>clock_gen_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="opencores.org" library="socgen_BFMs" name="clock_gen" version="def"/>
+			<ipxact:componentRef vendor="fusesoc" library="socgen_BFMs" name="clock_gen" version="def"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{6aade635-7718-4110-a24e-dcd43f4b4ade}</kactus2:uuid>
 				<kactus2:portPositions>
@@ -39,7 +39,7 @@
 		</ipxact:componentInstance>
 		<ipxact:componentInstance>
 			<ipxact:instanceName>jtag_model_0</ipxact:instanceName>
-			<ipxact:componentRef vendor="opencores.org" library="socgen_BFMs" name="jtag_model" version="def"/>
+			<ipxact:componentRef vendor="fusesoc" library="socgen_BFMs" name="jtag_model" version="def"/>
 			<ipxact:vendorExtensions>
 				<kactus2:uuid>{d023ca81-c01b-4782-abc9-5a3b027d9378}</kactus2:uuid>
 				<kactus2:portPositions>

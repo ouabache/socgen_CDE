@@ -7,7 +7,7 @@ xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014"
 xmlns:socgen="http://opencores.org" 
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<socgen:vendor>opencores.org</socgen:vendor>
+<socgen:vendor>fusesoc</socgen:vendor>
 <socgen:library>socgen_CDE</socgen:library>
 <socgen:component>jtag</socgen:component>
 
