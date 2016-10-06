@@ -73,6 +73,46 @@
 			</ipxact:abstractionTypes>
 			<ipxact:slave/>
 		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>capture</ipxact:name>
+			<ipxact:busType vendor="fusesoc" library="socgen_Busdefs" name="adhoc" version="bus"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="fusesoc" library="socgen_Busdefs" name="adhoc.absDef" version="bus"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>adhoc</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>capture_value</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:slave/>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>update</ipxact:name>
+			<ipxact:busType vendor="fusesoc" library="socgen_Busdefs" name="adhoc" version="bus"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="fusesoc" library="socgen_Busdefs" name="adhoc.absDef" version="bus"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>adhoc</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>update_value</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:master/>
+		</ipxact:busInterface>
 	</ipxact:busInterfaces>
 	<ipxact:model>
 		<ipxact:views>

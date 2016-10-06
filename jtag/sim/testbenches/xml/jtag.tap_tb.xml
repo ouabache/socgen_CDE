@@ -1,36 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:socgen="http://opencores.org" 
-xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014/ http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
 	<ipxact:vendor>fusesoc</ipxact:vendor>
 	<ipxact:library>socgen_CDE</ipxact:library>
 	<ipxact:name>jtag</ipxact:name>
 	<ipxact:version>tap_tb</ipxact:version>
-
-<ipxact:componentGenerators>
-
-
-
-
-<ipxact:componentGenerator>
-  <ipxact:name>gen_verilogLib_sim</ipxact:name>
-  <ipxact:phase>105.0</ipxact:phase>
-  <ipxact:apiType>none</ipxact:apiType>
-  <ipxact:vendorExtensions><socgen:envIdentifier>:*Simulation:*</socgen:envIdentifier></ipxact:vendorExtensions>
-  <ipxact:generatorExe>tools/verilog/gen_verilogLib</ipxact:generatorExe>
-    <ipxact:parameters>
-    <ipxact:parameter> 
-      <ipxact:name>view</ipxact:name>
-      <ipxact:value>sim</ipxact:value>
-    </ipxact:parameter>
-  </ipxact:parameters>      
-</ipxact:componentGenerator>
-
-</ipxact:componentGenerators>
-
 	<ipxact:busInterfaces>
 		<ipxact:busInterface>
-			<ipxact:name>FAIL</ipxact:name>
+			<ipxact:name>BAD</ipxact:name>
 			<ipxact:busType vendor="fusesoc" library="socgen_Busdefs" name="adhoc" version="bus"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -41,13 +17,13 @@ xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2
 								<ipxact:name>adhoc</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>FAIL</ipxact:name>
+								<ipxact:name>BAD</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
 				</ipxact:abstractionType>
 			</ipxact:abstractionTypes>
-			<ipxact:master/>
+			<ipxact:slave/>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
 			<ipxact:name>FINISH</ipxact:name>
@@ -70,7 +46,7 @@ xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2
 			<ipxact:master/>
 		</ipxact:busInterface>
 		<ipxact:busInterface>
-			<ipxact:name>START</ipxact:name>
+			<ipxact:name>FAIL</ipxact:name>
 			<ipxact:busType vendor="fusesoc" library="socgen_Busdefs" name="adhoc" version="bus"/>
 			<ipxact:abstractionTypes>
 				<ipxact:abstractionType>
@@ -81,7 +57,27 @@ xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2
 								<ipxact:name>adhoc</ipxact:name>
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
-								<ipxact:name>START</ipxact:name>
+								<ipxact:name>FAIL</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:master/>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>STOP</ipxact:name>
+			<ipxact:busType vendor="fusesoc" library="socgen_Busdefs" name="adhoc" version="bus"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="fusesoc" library="socgen_Busdefs" name="adhoc.absDef" version="bus"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>adhoc</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>STOP</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -102,6 +98,26 @@ xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2
 							</ipxact:logicalPort>
 							<ipxact:physicalPort>
 								<ipxact:name>clk</ipxact:name>
+							</ipxact:physicalPort>
+						</ipxact:portMap>
+					</ipxact:portMaps>
+				</ipxact:abstractionType>
+			</ipxact:abstractionTypes>
+			<ipxact:slave/>
+		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>START</ipxact:name>
+			<ipxact:busType vendor="fusesoc" library="socgen_Busdefs" name="adhoc" version="bus"/>
+			<ipxact:abstractionTypes>
+				<ipxact:abstractionType>
+					<ipxact:abstractionRef vendor="fusesoc" library="socgen_Busdefs" name="adhoc.absDef" version="bus"/>
+					<ipxact:portMaps>
+						<ipxact:portMap>
+							<ipxact:logicalPort>
+								<ipxact:name>adhoc</ipxact:name>
+							</ipxact:logicalPort>
+							<ipxact:physicalPort>
+								<ipxact:name>START</ipxact:name>
 							</ipxact:physicalPort>
 						</ipxact:portMap>
 					</ipxact:portMaps>
@@ -178,8 +194,49 @@ xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2
 					</ipxact:vectors>
 				</ipxact:wire>
 			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>STOP</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>BAD</ipxact:name>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left></ipxact:left>
+							<ipxact:right></ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+			</ipxact:port>
 		</ipxact:ports>
 	</ipxact:model>
+	<ipxact:componentGenerators>
+		<ipxact:componentGenerator>
+			<ipxact:name>gen_verilogLib_sim</ipxact:name>
+			<ipxact:phase>105.0</ipxact:phase>
+			<ipxact:parameters>
+				<ipxact:parameter parameterId="uuid_6fb8bb80_037e_4e6d_a523_897dec9869e0">
+					<ipxact:name>view</ipxact:name>
+					<ipxact:value>sim</ipxact:value>
+				</ipxact:parameter>
+			</ipxact:parameters>
+			<ipxact:apiType>none</ipxact:apiType>
+			<ipxact:generatorExe>tools/verilog/gen_verilogLib</ipxact:generatorExe>
+			<ipxact:vendorExtensions>
+				<socgen:envIdentifier>:*Simulation:*</socgen:envIdentifier>
+			</ipxact:vendorExtensions>
+		</ipxact:componentGenerator>
+	</ipxact:componentGenerators>
 	<ipxact:vendorExtensions>
 		<kactus2:version>3,1,2,0</kactus2:version>
 		<kactus2:kts_attributes>
